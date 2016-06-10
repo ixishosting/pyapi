@@ -1,0 +1,10 @@
+api:
+  container_name: api
+  image: ixis/webhook
+  volumes:
+    - 172.32.5.149/mnt/configs/hooks/:/etc/webhook
+  volume_driver: nfs
+  ports: 
+    - "5001:5001"
+  privileged: true
+  entrypoint: python /etc/webhook/api/app.py
